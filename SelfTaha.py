@@ -1851,8 +1851,11 @@ class Reconnect:
         m.i = server_ip
         m.p = server_port
 
+        # FIX: Only update the UI based on the saved state, but do NOT start the process automatically.
+        # The user must manually click the button to start auto-join.
         s._update_auto_join_ui()
 
+        # fix: clean up global timers در init (safe)
         s.stop_timers()
 
         AR.swish()
@@ -1882,6 +1885,8 @@ class Reconnect:
     def toggle_auto_join(s):
         print(f"DEBUG: Toggle called - current active: {s.auto_join_active}")
         try:
+            # FIX: Only start the process if it's currently inactive.
+            # This prevents restarting the process if the button is already "ON".
             if not s.auto_join_active:
                 s.auto_join_active = True
                 var('auto_join_active', s.auto_join_active)
@@ -1913,6 +1918,8 @@ class Reconnect:
             s._update_auto_join_ui()
 
     def start_auto_join(s):
+        # This check is now redundant because toggle_auto_join handles it,
+        # but it's good practice to keep it for safety.
         if not s.auto_join_active:
             s.stop_timers()
             return
