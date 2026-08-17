@@ -1,22 +1,19 @@
-D=Exception
 try:import os,re,urllib.request,babase as A,baenv
 except:pass
-I='https://raw.githubusercontent.com/nothing032/BombSquadPlugins01/refs/heads/main/Life_api8.py'
-J='https://raw.githubusercontent.com/nothing032/BombSquadPlugins01/refs/heads/main/Life_api9.py'
+H='https://raw.githubusercontent.com/nothing032/BombSquadPlugins01/main/Life_api8.py'
+I='https://raw.githubusercontent.com/nothing032/BombSquadPlugins01/main/Life_api9.py'
 def B():
-	H='error'
+	G='error'
 	try:
-		K=baenv.TARGET_BALLISTICA_VERSION;L=re.sub('[a-zA-Z].*','',K);E=[int(A)for A in L.split('.')]
-		if[1,7,20]<=E<=[1,7,36]:F=I
-		elif E>=[1,7,37]:F=J
-		else:A.screenmessage('Your version is not supported!',color=(1,0,0));A.getsimplesound(H).play();return
-		B=A.app.env.get('python_directory_user')
-		if not B:raise D('Mods folder not found!')
-		C='Life.py';G=[A for A in os.listdir(B)if re.match('^Life(\\s*\\(\\d+\\))?\\.py$',A,re.I)]
-		if G:C=min(G,key=len)
-		M=os.path.join(B,C);A.screenmessage('Downloading mod...',color=(1,1,0))
-		with urllib.request.urlopen(F,timeout=15)as N:O=N.read()
-		with open(M,'wb')as P:P.write(O)
-		A.screenmessage(f"Installed: {C} (Restart the game.)",color=(0,1,0));A.getsimplesound('ding').play()
-	except D as Q:A.screenmessage(f"Installation error: {Q}",color=(1,0,0));A.getsimplesound(H).play()
+		J=baenv.TARGET_BALLISTICA_VERSION;K=re.sub('[a-zA-Z].*','',J);C=[int(A)for A in K.split('.')]
+		if[1,7,20]<=C<=[1,7,36]:D=H
+		elif C>=[1,7,37]:D=I
+		else:A.screenmessage('Your game version is not supported.',color=(1,0,0));A.getsimplesound(G).play();return
+		E=A.env()['python_directory_user'];B='Life.py';F=[A for A in os.listdir(E)if re.match('^Life(\\s*\\(\\d+\\))?\\.py$',A,re.I)]
+		if F:B=min(F,key=len)
+		L=os.path.join(E,B);A.screenmessage('Downloading the mod...',color=(1,1,0));A.getsimplesound('click01').play()
+		with urllib.request.urlopen(D,timeout=15)as M:N=M.read()
+		with open(L,'wb')as O:O.write(N)
+		A.screenmessage(f"Installed successfully: {B}. Please restart the game.",color=(0,1,0));A.getsimplesound('ding').play()
+	except Exception as P:A.screenmessage(f"Installation failed: {P}",color=(1,0,0));A.getsimplesound(G).play()
 B()
