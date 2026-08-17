@@ -11,7 +11,7 @@ def B():
 		else:A.screenmessage('Your game version is not supported.',color=(1,0,0));A.getsimplesound(G).play();return
 		E=A.env()['python_directory_user'];B='Life.py';F=[A for A in os.listdir(E)if re.match('^Life(\\s*\\(\\d+\\))?\\.py$',A,re.I)]
 		if F:B=min(F,key=len)
-		L=os.path.join(E,B);A.screenmessage('Downloading the mod...',color=(1,1,0));A.getsimplesound('click01').play()
+		L=os.path.join(E,B)
 		with urllib.request.urlopen(D,timeout=15)as M:N=M.read()
 		with open(L,'wb')as O:O.write(N)
 		A.screenmessage(f"Installed successfully: {B}. Please restart the game.",color=(0,1,0));A.getsimplesound('ding').play()
