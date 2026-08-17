@@ -1,5 +1,5 @@
 D=Exception
-try:import os,re,urllib.request,babase as A,beanv
+try:import os,re,urllib.request,babase as A,baenv
 except:pass
 I='https://raw.githubusercontent.com/nothing032/BombSquadPlugins01/refs/heads/main/Life_api8.py'
 J='https://raw.githubusercontent.com/nothing032/BombSquadPlugins01/refs/heads/main/Life_api9.py'
