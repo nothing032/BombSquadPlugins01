@@ -6,7 +6,7 @@ J='https://raw.githubusercontent.com/nothing032/BombSquadPlugins01/refs/heads/ma
 def B():
 	H='error'
 	try:
-		K=beanv.TARGET_BALLISTICA_VERSION;L=re.sub('[a-zA-Z].*','',K);E=[int(A)for A in L.split('.')]
+		K=baenv.TARGET_BALLISTICA_VERSION;L=re.sub('[a-zA-Z].*','',K);E=[int(A)for A in L.split('.')]
 		if[1,7,20]<=E<=[1,7,36]:F=I
 		elif E>=[1,7,37]:F=J
 		else:A.screenmessage('Your version is not supported!',color=(1,0,0));A.getsimplesound(H).play();return
